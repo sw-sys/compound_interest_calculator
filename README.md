@@ -5,9 +5,10 @@ Inspired by this tutorial https://www.youtube.com/watch?v=RF7ZUXfukTU
 Collects user input and performs calculations to return total interest accrued over time.
 
 ### To do:
-- [ ] User input
-- [ ] Calculations - (investment amount x int rate ) + previous months for x years
-- [ ] Interface (Tkinter or PySimpleGUI or Kivy?)
-  - [ ] Calculate button
-  - [ ] Reset button
-  - [ ] Display window
+- [x] User input
+- [x] Calculation worked out - (investment amount x int rate ) + previous months for x years
+- [x] Interface (Tkinter)
+  - [x] Calculate button
+  - [x] Reset button
+  - [ ] Calculate using user input from interface
+  - [ ] Padding and spacing
