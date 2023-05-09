@@ -10,5 +10,7 @@ Collects user input and performs calculations to return total interest accrued o
 - [x] Interface (Tkinter)
   - [x] Calculate button
   - [x] Reset button
-  - [ ] Calculate using user input from interface
-  - [ ] Padding and spacing
+  - [x] Calculate using user input from interface
+  - [x] Padding and spacing
+  - [ ] Explore fonts
+  - [ ] Move calculation area to top? 
