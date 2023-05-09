@@ -8,7 +8,7 @@ window = Tk()
 # window properties
 window.title('Interest Calculator')
 window.resizable(0, 0)
-window.geometry("800x200")
+window.geometry("600x220")
 
 # grid
 
@@ -22,19 +22,21 @@ entry2 = Entry(window, relief= 'groove', width = 10)
 entry3 = Entry(window, relief= 'groove', width = 10)
 entry4 = Entry(window, relief= 'groove', width = 10)
 
-label10 = Label(window, relief= 'sunken', width = 60)
+label9 = Label(window, relief= 'flat', width = 40)
+label10 = Label(window, relief= 'flat', width = 40)
 
-label1.grid(row = 1, column = 1, padx = 10, pady=5)
-label2.grid(row = 2, column = 1, padx = 10, pady=5)
-label3.grid(row = 3, column = 1, padx = 10, pady=5)
-label4.grid(row = 4, column = 1, padx = 10, pady=5)
+label1.grid(row = 1, column = 1, padx = 10, pady=10)
+label2.grid(row = 2, column = 1, padx = 10, pady=10)
+label3.grid(row = 3, column = 1, padx = 10, pady=10)
+label4.grid(row = 4, column = 1, padx = 10, pady=10)
 
 entry1.grid(row = 1, column = 2, padx = 10)
 entry2.grid(row = 2, column = 2, padx = 10)
 entry3.grid(row = 3, column = 2, padx = 10)
 entry4.grid(row = 4, column = 2, padx = 10)
 
-label10.grid(row = 1, column = 4, pady = 10, rowspan = 5)
+label9.grid(row = 1, column = 4, pady = 5)
+label10.grid(row = 2, column = 4, pady = 10)
 
 # User entry requests and defaults
 label1.configure(text='Enter deposit amount:')
@@ -55,13 +57,17 @@ resetBtn.grid(row = 5, column= 2, pady=10)
 
 # def calcInterest(principal, interest, time_period, compounding_frequency):
 def calcInterest():
-    principal = entry1.get()
-    interest = entry2.get()
-    time_period = entry3.get()
-    compounding_frequency = entry4.get()
+    principal = float(entry1.get())
+    interest = float(entry2.get())
+    time_period = float(entry3.get())
+    compounding_frequency = float(entry4.get())
     amount = principal * (1 + (interest / compounding_frequency)) ** (compounding_frequency * time_period)
     interest_amount = amount - principal
-    label10.configure(text = interest_amount)
+    interest_amount = round(interest_amount, 2)
+    interest_amount = str(interest_amount)
+    label9.configure(text = "The amount of interest earnt is:")
+    currency = "£"
+    label10.configure(text = currency + interest_amount)
 
 calcBtn.configure(command = calcInterest)
 
@@ -77,6 +83,7 @@ def reset():
     entry4.insert(0, "")
     calcBtn.configure(state = NORMAL)
     resetBtn.configure(state = DISABLED)
+    label10.configure(text = " ")
 
 resetBtn.configure(command = reset)
 
@@ -100,4 +107,4 @@ window.mainloop()
 # total_interest = calcInterest(principal, interest, time_period, compounding_frequency)
 # total_interest = round(total_interest, 2)
 
-# print(f"Total interest accrued is: £ {total_interest}")
+# 
